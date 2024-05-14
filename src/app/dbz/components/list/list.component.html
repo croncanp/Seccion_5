@@ -1,0 +1,27 @@
+<h4>Listodo</h4>
+<ul class="list-group">
+  <!--
+  index = trae el indice de un listado
+  isFirst = Marca el primer item de la lista
+  isLast = marca el ultimo item de la lista
+  isEven = dice cual de los indices de la lista es par
+  isOdd = dice cual de los indices de la lista es impar
+  -->
+  <li *ngFor="let character of characterList;
+  let index = index;
+  let isFirst = first;
+  let isLast = last ;
+  let isEven = even;
+  let isOdd = odd; " class="list-group-item d-flex justify-content-between aling-items-center" [ngClass]="{'list-group-item-dark': isLast, 'list-group-item-primary': isEven} ">
+
+    <div>
+      <span class="text-primary">{{ index + 1 }}. </span>
+      <span>{{ character.name }} - </span>
+      <strong>Power: </strong>
+      <span>{{ character.power }}</span>
+    </div>
+
+    <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger">X</button>
+
+  </li>
+</ul>
